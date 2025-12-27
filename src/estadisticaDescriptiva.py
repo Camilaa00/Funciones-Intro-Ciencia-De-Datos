@@ -1,10 +1,38 @@
-def media(lista):
-  if len(lista) == 0:
-    return 0
-  return sum(lista) / len(lista)
+import math
+
+# MEDIDAS DE TENDENCIA CENTRAL:
+#-----------------------------
+def promedio(lista):
+  """
+  La función 'promedio' calcula el promedio de una lista de números.
+  Parámetros
+  -------------
+  lista: lista (argumento de entrada de la función)
+
+  Qué retorna?
+  --------------
+  Promedio: float (promedio de los números de la lista)
+  """
+  nueva_lista = []
+  for i in lista:
+    if math.isfinite(i):
+      nueva_lista.append(i)
+  return sum(nueva_lista)/len(nueva_lista)
 
 
 def mediana(lista):
+  """
+  La función 'mediana' calcula la mediana de una lista de números.
+
+  Parámetros:
+  --------------
+  lista: lista de entrada. (números)
+
+  Qué retorna?
+  --------------
+  mediana: float (mediana de los números de la lista)
+  """
+  
   if len(lista) == 0:
     return 0
 
@@ -19,6 +47,17 @@ def mediana(lista):
     return (medio1 + medio2) / 2
 
 def moda(lista):
+  """
+  La función 'moda' calcula la moda de una lista de entrada.
+
+  Parámetros:
+  --------------
+  lista: lista de entrada (cualquier tipo de dato)
+
+  Qué retorna?
+  --------------
+  moda: int, float, string, etc. (depende del tipo de dato que conforme la lista)
+  """
   if len(lista) == 0:
     return []
 
@@ -31,23 +70,68 @@ def moda(lista):
 
   return modas
 
-def varianza(lista, poblacional=True):
-  if len(lista) < 2:
-    return 0
-
-  prom = media(lista)
-  suma_cuadrados = sum((x - prom) ** 2 for x in lista)
-  n = len(lista)
-  divisor =n if poblacional else n - 1
-
-  return suma_cuadrados / divisor
-
-def desviacion_estandar(lista, poblacional=True):
-  return varianza(lista, poblacional) ** 0.5
-
+# MEDIDAS DE DISPERSIÓN:
+#-------------------------------
 def rango(lista):
+  """
+  La función 'rango' calcula el rango de una lista de números.
+
+  Parámetros:
+  --------------
+  lista: lista de números (int o float)
+
+  Qué retorna?
+  --------------
+  rango: float
+  """
   if len(lista) == 0:
     return 0
   return max(lista) - min(lista)
+
+
+def varianza(lista, tipo="poblacional"):
+  """
+  La función 'varianza' calcula la varianza de una lista de números.
+
+  Parámeteros:
+  -----------------
+  lista: lista de números
+  tipo: string (es opcional. Tipo de varianza: "poblacional" o "muestral")
+
+  Qué retorna?
+  --------------
+  varianza: float
+  """
+  if len(lista) < 2:
+    return 0
+
+  prom = promedio(lista)
+  suma_cuadrados = sum((x - prom) ** 2 for x in lista)
+  n = len(lista)
+
+  if tipo == "muestral" and n > 1:
+    return suma_cuadrados / (n - 1)
+  else:
+    return suma_cuadrados / n
+
+
+def desviacion_estandar(lista, tipo="poblacional"):
+  """
+  La función 'desviacion_estandar' calcula la desviación estándar de una lista de números.
+
+  Parámetros:
+  --------------
+  lista: lista de números.
+  tipo: string (es opcional. Tipo de varianza: "poblacional" o "muestral")
+
+  Qué retorna?
+  --------------
+  Desviación estándar: float
+  """
+  return math.sqrt(varianza(lista, tipo))
+
+
+  
+
 
 
