@@ -130,7 +130,7 @@ def desviacion_estandar(lista, tipo="poblacional"):
   """
   return math.sqrt(varianza(lista, tipo))
 
-def frecuencias(lista):
+def frecuencia(lista):
   """
   La función 'frecuencias' calcula la frecuencia de los datos de la lista.
 
