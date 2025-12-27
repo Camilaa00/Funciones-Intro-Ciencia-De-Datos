@@ -63,7 +63,7 @@ def moda(lista):
 
   frecuencias = {}
   for num in lista:
-    frecuencias[num] = frecuencias.get(unm, 0) +1
+    frecuencias[num] = frecuencias.get(num, 0) +1
 
   max_freq = max(frecuencias.values())
   modas = [num for num, freq in frecuencias.items() if freq == max_freq]
