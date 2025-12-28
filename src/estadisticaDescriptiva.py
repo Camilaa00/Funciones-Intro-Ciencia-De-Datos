@@ -222,41 +222,38 @@ def mediana_desv_abs(lista):
 
     
 def percentil(p, lista):
-    """
-    Calcula el percentil p (0-100) de una lista de valores.
+  """
+  Calcula el percentil p (0-100) de una lista de valores.
     
-    Parámetros:
-    -----------
-    p : float
-        Percentil deseado (0 a 100).
-    lista : list
-        Lista de valores numéricos.
+  Parámetros:
+  -----------
+  p : float
+      Percentil deseado (0 a 100).
+  lista : list
+      Lista de valores numéricos.
         
-    Retorna:
-    --------
-    float
-        Valor del percentil.
-    """
-    # Hacer copia para no modificar la lista original
-    lista_ordenada = sorted(lista)
-    n = len(lista_ordenada)
+  Retorna:
+  --------
+  float
+      Valor del percentil.
+  """
+  lista_ordenada = sorted(lista)
+  n = len(lista_ordenada)
     
-    # Casos especiales
-    if p <= 0:
-        return lista_ordenada[0]
-    if p >= 100:
-        return lista_ordenada[-1]
+  # Casos especiales
+  if p <= 0:
+      return lista_ordenada[0]
+  if p >= 100:
+      return lista_ordenada[-1]
+  
+  k = (p / 100) * (n - 1)
+  f = int(k)          
+  c = k - f           
     
-    # Calcular posición
-    k = (p / 100) * (n - 1)
-    f = int(k)          # Parte entera
-    c = k - f           # Parte decimal
-    
-    # Interpolación lineal
-    if (f + 1) < n:
-        return lista_ordenada[f] + c * (lista_ordenada[f + 1] - lista_ordenada[f])
-    else:
-        return lista_ordenada[f]
+  if (f + 1) < n:
+      return lista_ordenada[f] + c * (lista_ordenada[f + 1] - lista_ordenada[f])
+  else:
+      return lista_ordenada[f]
 
   
 
