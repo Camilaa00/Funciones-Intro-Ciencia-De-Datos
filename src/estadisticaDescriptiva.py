@@ -286,6 +286,23 @@ def correlacion(x, y):
 
   return numerador / (n * denominador)
 
+def covarianza(x, y):
+  """
+  """
+   
+  if len(x) != len(y):
+    raise ValueError("Las listas x e y deben tener la misma longitud")
+    
+    n = len(x)
+  
+    promedio_x = sum(x) / n
+    promedio_y = sum(y) / n
+    
 
+    suma_productos = 0
+    for i in range(n):
+        suma_productos += (x[i] - promedio_x) * (y[i] - promedio_y)
+    
+    return suma_productos / n
 
 
