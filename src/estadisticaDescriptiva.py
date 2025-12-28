@@ -165,24 +165,25 @@ def cuartiles(lista):
   num_ordenados = sorted(lista)
   n = len(num_ordenados)
 
-Q2 = mediana(num_ordenados)
+  Q2 = mediana(num_ordenados)
 
-# Cuartil 1:
-if n % 2 == 0:
-  mitad_inferior = num_ordenados[:n // 2]
-else:
-  mitad_inferior = num_ordenados[:n // 2]
+  # Cuartil 1:
+  if n % 2 == 0:
+    mitad_inferior = num_ordenados[:n // 2]
+  else:
+    mitad_inferior = num_ordenados[:n // 2]
 
-Q1 = mediana(mitad_inferior)
+  Q1 = mediana(mitad_inferior)
 
-# Cuartil 3:
-if n % 2 == 0:
-  mitad_superior = num_ordenados[n//2:]
-else:
-  mitad_superior = num_ordenados[n//2+1:]
+  # Cuartil 3:
+  if n % 2 == 0:
+    mitad_superior = num_ordenados[n//2:]
+  else:
+    mitad_superior = num_ordenados[n//2+1:]
+    
   Q3 = mediana(mitad_superior)
     
-    return Q1, Q2, Q3
+  return Q1, Q2, Q3
 
 def rango_intercuartilico(lista):
   """
