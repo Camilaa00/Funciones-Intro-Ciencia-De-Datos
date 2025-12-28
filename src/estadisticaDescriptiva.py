@@ -217,7 +217,7 @@ def mediana_desv_abs(lista):
       MAD
   """
   med = mediana(lista)
-  std_abs = [abs(x - med) for i in lista]
+  std_abs = [abs(i - med) for i in lista]
   return mediana(std_abs)
 
     
