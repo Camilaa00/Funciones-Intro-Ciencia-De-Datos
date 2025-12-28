@@ -230,6 +230,7 @@ def percentil(p, lista):
   # Para casos especiales:
   if p <= 0:
         return lista_ordenada[0]
+    
   if p >= 100:
         return lista_ordenada[-1]
 
