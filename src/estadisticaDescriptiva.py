@@ -255,7 +255,35 @@ def percentil(p, lista):
   else:
       return lista_ordenada[f]
 
-  
+def correlacion(x, y):
+  """
+  """
+  if len(x) != len(y):
+    return None
+
+  n = len(x)
+
+  promedio_x = sum(x) / n
+  promedio_y = sum(y) / n
+
+  numerador = 0.0
+  for i in range(n):
+    numerador += (x[i] - promedio_x) * (y[i] - promedio_y)
+
+  varianza_x = sum((xi - promedio_x) ** 2 for xi in x) / n
+  varianza_y = sum((yi - promedio_y) ** 2 for yi in y) / n
+
+  if varianza_x == 0 or varianza_y == 0:
+    return 0
+
+  desviacion_x = varianza_x ** 0.5
+  desviacion_y = varianza_y ** 0.5
+
+  if denominador == 0:
+    return 0
+
+  return numerador / (n * denominador)
+
 
 
 
