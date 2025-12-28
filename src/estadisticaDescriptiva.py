@@ -220,6 +220,23 @@ def mediana_desv_abs(lista):
   std_abs = [abs(x - med) for i in lista]
   return mediana(std_abs)
 
+def percentil(p, lista):
+  """
+  Esta función....
+  """
+  lista.sort()
+  n = len(lista)
+
+  k = (p / 100) * (n - 1)
+  f = int(k)
+  c = k - f
+
+if f + 1 < n:
+  return lista[f] + c * (lista[f + 1] - lista[f])
+else:
+  return lista[f]
+
+
 
   
 
