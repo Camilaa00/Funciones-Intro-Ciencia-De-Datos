@@ -279,6 +279,8 @@ def correlacion(x, y):
   desviacion_x = varianza_x ** 0.5
   desviacion_y = varianza_y ** 0.5
 
+  denominador = desviacion_x * desviacion_y
+
   if denominador == 0:
     return 0
 
