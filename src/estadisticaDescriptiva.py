@@ -231,10 +231,10 @@ def percentil(p, lista):
   f = int(k)
   c = k - f
 
-if f + 1 < n:
-  return lista[f] + c * (lista[f + 1] - lista[f])
-else:
-  return lista[f]
+  if f + 1 < n:
+    return lista[f] + c * (lista[f + 1] - lista[f])
+  else:
+    return lista[f]
 
 
 
